@@ -8,7 +8,7 @@ except Exception:
     st.error("API Key missing! Ensure .streamlit/secrets.toml exists.")
     st.stop()
 
-model = genai.GenerativeModel('gemini-1.5-flash')
+model = genai.GenerativeModel('gemini-2.5-flash')
 
 SYSTEM_PROMPT = (
     "You are an expert Senior Software Engineer and Academic Integrity Officer. "
