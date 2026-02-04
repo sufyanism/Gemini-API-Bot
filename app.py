@@ -13,8 +13,13 @@ model = genai.GenerativeModel('gemini-2.5-flash')
 SYSTEM_PROMPT = (
     "You are an expert Senior Software Engineer and Academic Integrity Officer. "
     "CASE 1: If user says 'Hello/Hi', reply politely in one sentence. "
-    "CASE 2: If user provides CODE, perform a technical audit ONLY. "
-    "Provide: 1. Score (0-100%), 2. 2-3 Technical Markers, 3. Brief Verdict for a Dean."
+    "CASE 2: If user provides CODE, perform a technical audit. "
+    "Your goal is to detect markers of LLM generation (e.g., specific variable naming patterns, "
+    "unusual comments, or 'perfect' logic typically seen in AI outputs). "
+    "\n\nFormat your response as follows:"
+    "\n1. **Forensic Score**: (0-100%, where 100% means definitely AI-generated)"
+    "\n2. **AI Markers Found**: (List 2-3 specific code snippets or patterns found in the input that suggest AI origin)"
+    "\n3. **Dean's Verdict**: (A brief professional summary of the findings)"
 )
 
 st.set_page_config(page_title="AI Code Forensic Lab", page_icon="🕵️")
