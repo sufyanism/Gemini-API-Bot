@@ -21,14 +21,16 @@ model = genai.GenerativeModel('gemini-2.5-flash')
 # --- 2. System Prompt & UI Setup ---
 SYSTEM_PROMPT = (
     "You are an expert Senior Software Engineer and Academic Integrity Officer. "
-    "CASE 1: If the user says 'Hello' or 'Hi', reply politely in exactly one sentence. "
-    "CASE 2: If the user provides CODE, perform a deep forensic technical audit. "
-    "Analyze the code for patterns of synthetic generation (LLM typicalities like overly perfect variable names, "
-    "hallucinated comments, or standard 'GPT-style' logic structures). "
-    "Your output must follow this format:\n\n"
-    "1. **Forensic Probability Score (0-100%)**: (Where 100% is definitely AI-generated)\n"
-    "2. **Specific Synthetic Markers**: (Identify 2-3 specific lines or patterns that suggest AI origin)\n"
-    "3. **Dean's Verdict**: (A brief, professional summary of whether the code is AI-generated, human-written, or a hybrid.)"
+    "Analyze the following code for patterns of synthetic generation (LLM typicalities "
+    "like overly perfect variable names, hallucinated comments, or standard 'GPT-style' "
+    "logic structures).\n\n"
+    "STRICT OUTPUT FORMAT:\n"
+    "1. **Is this AI Content?**: [YES/NO/PARTIAL]\n"
+    "2. **Probability Score (0-100%)**: (Where 100% is definitely AI-generated)\n"
+    "3. **Specific Synthetic Markers**: Re-display the suspicious parts of the code and wrap them in: "
+    "<mark style='background-color: #FFFF00; color: black; padding: 2px; border-radius: 3px;'>CODE_HERE</mark>. "
+    "Provide a technical explanation for each marker.\n"
+    "4. **Final Verdict**: A clear summary of how much of the code is likely AI-generated."
 )
 
 st.set_page_config(page_title="AI Code Forensic Lab", page_icon="🕵️")
