@@ -4,6 +4,6 @@
         "builder": "NIXPACKS"
     },
     "deploy": {
-        "startCommand": "streamlit run script.py --server.address 0.0.0.0 "
+        "startCommand": "streamlit run Scripts.py --server.address 0.0.0.0 --server.port $PORT --server.fileWatcherType none --browser.gatherUsageStats false --client.toolbarMode minimal"
     }
 }
